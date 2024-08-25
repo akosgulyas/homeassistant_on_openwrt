@@ -155,8 +155,6 @@ opkg install \
 
 # openwrt < 22.03 doesn't have this package
 opkg install python3-pycares 2>/dev/null || true
-# numpy requires hard floating point support and is missing on some MIPS architectures
-opkg install python3-numpy 2>/dev/null || true
 
 cd /tmp/
 
