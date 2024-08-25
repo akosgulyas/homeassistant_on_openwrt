@@ -16,7 +16,7 @@ It is distributed with a shell script that downloads and installs everything tha
 Then, download the installer and run it.
 
 ```sh
-wget https://raw.githubusercontent.com/openlumi/homeassistant_on_openwrt/23.05/ha_install.sh -O - | sh
+wget https://raw.githubusercontent.com/akosgulyas/homeassistant_on_openwrt/23.05/ha_install.sh -O - | sh
 ```
 
 After script prints `Done.` you have Home Assistant installed. 
@@ -32,36 +32,6 @@ In this case restarting HA could work.
 
 Other components are not tested and may require additional changed in 
 requirement versions or python libraries.
-
-## ZHA usage on Xiaomi Gateway
-
-The component uses internal UART to communicate with ZigBee chip.
-The chip has to be flashed with a proper firmware to be able to 
-communicate with the HA. The recommended firmware is v3.23:
-
-https://github.com/openlumi/ZiGate/releases/download/55f8--20230114-1835/ZigbeeNodeControlBridge_JN5169_COORDINATOR_115200.bin 
-
-You could try another Zigate firmwares for JN5169 chip. The baud rate
-must be 115200 as it is hardcoded in zigpy-zigate.
-
-Use **/dev/ttymxc1** port for ZHA configuration, it is connected to the zigbee chip.
-
-It is REQUIRED to erase Persistent Data Manager (PDM) before adding new devices.
-Otherwise, device adding fails.
-
-Use luci zigbee tools submenu to send erase PDM command with the button or
-erase PDM in console:
-
-```sh
-jntool erase_pdm
-```
-
-Zigbee port must not be locked with any program, like ZHA or zigbee2mqtt.
-
-**NOTE: It may require restarting Home Assistant after adding a new 
-component via the UI to let it see newly installed requirements. 
-E.g. ZHA installs paho-mqtt and will not allow configuring it unless HA is 
-restarted.**
 
 ## Enabling other components and installing custom
 
