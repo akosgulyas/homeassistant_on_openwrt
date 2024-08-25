@@ -97,7 +97,6 @@ opkg install \
   python3-async-timeout \
   python3-asyncio \
   python3-attrs \
-  python3-bcrypt \
   python3-boto3 \
   python3-botocore \
   python3-certifi \
