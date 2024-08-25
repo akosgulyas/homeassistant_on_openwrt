@@ -73,8 +73,7 @@ fi
 
 rm -rf ${STORAGE_TMP}
 
-echo "Install base requirements from feed..."
-opkg update
+echo "Installing Base Requirements"
 
 PYTHON_VERSION=$(get_python_version)
 echo "Detected Python ${PYTHON_VERSION}"
